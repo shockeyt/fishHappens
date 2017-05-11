@@ -5,6 +5,7 @@ var express = require('express'),
 
 //CONTROLLERS
 var usersController = require('../controllers/users');
+var weatherController = require('../controllers/weatherBack');
 
 
 // SQL API Routes
@@ -24,6 +25,17 @@ router.route('/auth/login')
 //HARDCODED POST ROUTE
 router.route('/api/posts')
   .get(usersController.postTest);
+
+//WEATHER ROUTES
+router.route('/api/weather/current/:id')
+	.get(weatherController.getCurrentDay);
+
+router.route('/api/weather/fourday/:id')
+	.get(weatherController.getFourDay);
+
+router.route('/api/weather/astronomy/:id')
+	.get(weatherController.getAstronomy);
+	
 
 
 
