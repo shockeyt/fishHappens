@@ -16,8 +16,8 @@ var User = sequelize.define('user', {
   }  
 });
 
-
-User.sync({force: true});
+//THIS drops the table after every server restart
+//User.sync({force: true});
 
 User.beforeCreate(function(user, options) {
   var salt = bcrypt.genSaltSync(10);
