@@ -63,7 +63,7 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
         loginRequired: loginRequired
       }
     });
-
+    
 
     function skipIfLoggedIn($q, $auth) {
       var deferred = $q.defer();

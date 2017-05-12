@@ -36,7 +36,9 @@ router.route('/api/weather/fourday/:id')
 router.route('/api/weather/astronomy/:id')
 	.get(weatherController.getAstronomy);
 	
-
+//USER DATA
+router.route('/user/data')
+	.get(auth.ensureAuthenticated, usersController.saveSpots);
 
 
 module.exports = router;

@@ -42,5 +42,6 @@ function WeatherController ($http) {
 					console.log("astronomy is: ", response);
 
 				});
-		
+
+
 }

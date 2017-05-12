@@ -1,4 +1,6 @@
-var sqlUser = require('../models/user_sql'),
+var db = require('../models');
+var sqlUser = db.models.User;
+//var sqlUser = require('../models/user_sql'),
 	auth = require('../resources/auth');
 
 
@@ -7,6 +9,7 @@ function apiGet (req, res) {
 	    if (!user) {
 	      return res.status(400).send({ message: 'User not found.' });
 	    }
+	    console.log(user);
 	    res.send(user);
   	});
 }
@@ -74,6 +77,21 @@ function postTest (req, res) {
 	]);
 }
 
+let testCoord = "43.653436,-110.715088";
+function saveSpots (req, res) {
+	sqlUser.findById(req.user)
+		.then(function (user) {
+	    if (!user) {
+	      return res.status(400).send({ message: 'User not found.' });
+	    }
+	    //res.send(user);
+	    console.log(user);
+	 //    user.coordinates.updateAttributes(testCoord);
+		// })
+		// .then(function(user) {
+		// 	console.log(user);
+	});
+}
 
 
 module.exports = {
@@ -81,6 +99,7 @@ module.exports = {
 	apiPut: apiPut,
 	authSignup: authSignup,
 	authLogin: authLogin,
-	postTest: postTest
+	postTest: postTest,
+	saveSpots: saveSpots
 };
 
