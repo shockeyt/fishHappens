@@ -31,6 +31,7 @@ function getFourDay (req, res) {
 			day.low = forecastDays[i].low.fahrenheit;
 			day.conditions = forecastDays[i].conditions;
 			day.maxwind = forecastDays[i].maxwind.mph;
+			day.icon = forecastDays[i].icon_url;
 			fourDay.push(day);
 			day = {};
 		}
@@ -48,7 +49,7 @@ function getCurrentDay (req, res) {
 	let url = 'http://api.wunderground.com/api/' + wKey + '/conditions/q/' + latlng + '.json';
 	request (url, function (error, response, body) {
 		let parseBody = JSON.parse(body);
-		//console.log("current day is:", parseBody);
+		console.log("current day is:", parseBody);
 		// console.log("city state is: ", parseBody.current_observation.display_location.full);
 		// console.log("elevation is: ", parseBody.current_observation.display_location.elevation);
 		// console.log("temp is: ", parseBody.current_observation.temp_f);
@@ -60,9 +61,14 @@ function getCurrentDay (req, res) {
 		// console.log("weather is: ", parseBody.current_observation.weather);
 		// console.log("icon: ", parseBody.current_observation.icon_url);
 
+		let mElevation = parseFloat(parseBody.current_observation.display_location.elevation);
+		let convertElevation = mElevation * 3.28;
+		//console.log("elevation is: ", mElevation);
+		//console.log("converted elevation is: ", convertElevation);
+
 		let currentDay = {
 			city_state: parseBody.current_observation.display_location.full,
-			elevation: parseBody.current_observation.display_location.elevation,
+			elevation: convertElevation,
 			temp: parseBody.current_observation.temp_f,
 			pressure: parseBody.current_observation.pressure_in,
 			pressure_trend: parseBody.current_observation.pressure_trend,
@@ -123,6 +129,10 @@ function getFutureMoon (req, res) {
 	request (url, function (error, response, body) {
 		var parseBody = JSON.parse(body);
 		console.log(parseBody);
+
+
+
+		res.json(parseBody);
 	});
 }
 

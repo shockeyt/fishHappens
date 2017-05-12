@@ -36,6 +36,9 @@ router.route('/api/weather/fourday/:id')
 router.route('/api/weather/astronomy/:id')
 	.get(weatherController.getAstronomy);
 
+router.route('/api/weather/mooncast/:id')
+	.get(weatherController.getFutureMoon);
+
 
 //LOCATION ROUTES
 //index	
