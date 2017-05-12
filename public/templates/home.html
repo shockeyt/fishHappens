@@ -8,8 +8,22 @@
 	</div>
 </div>
 
+
 <div ng-show="main.currentUser()">
 	<h3>Current User is:</h3>
 	{{main.currentUser().displayName}}
 	<br>
 </div>
+<<<<<<< HEAD
+<section ng-controller="LocaController as locaController">
+	<div ng-repeat="location in locaController.locasList">
+	  <loca 
+			name="{{location.name}}"	
+			elevation="{{location.elevation}}"
+			current-temp="{{location.temp}}"
+	  ></loca>
+	</div>	
+</section>
+
+
+<!-- WE WILL DECIDE LATER WHETHER TO PULL MAP INTO HERE AND PULL LOCA CONTROLLER INTO WEATHER CONTROLLER -->
