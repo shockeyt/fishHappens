@@ -7,6 +7,7 @@ var express = require('express'),
 var usersController = require('../controllers/users');
 var weatherController = require('../controllers/weatherBack');
 var locationController = require('../controllers/locationControl');
+var flowController = require('../controllers/flowController.js');
 
 // SQL API Routes
 router.route('/api/me')
@@ -53,6 +54,18 @@ router.route('/api/location/:id')
 //destroy
 router.route('/api/location/:id')
 	.delete(locationController.destroy);
+
+
+// STREAM FLOW ROUTES
+
+// get current stream flow data
+router.route('/fishspots')
+	.post(flowController.getFishSpot);
+
+// get past week stream flow data
+router.route('/fishweek')
+	.post(flowController.getWeeklyFlow);
+
 
 
 //USER DATA (NOT WORKING)
