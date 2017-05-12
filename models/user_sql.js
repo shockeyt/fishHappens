@@ -1,13 +1,13 @@
-//var Sequelize = require('sequelize');
+// var Sequelize = require('sequelize');
 var bcrypt = require('bcryptjs');
 
-//var sequelize = new Sequelize('postgres://'+process.env.USERNAME+'@localhost:5432/satellizer_sequelize');
+// var sequelize = new Sequelize('postgres://'+process.env.USERNAME+'@localhost:5432/satellizer_sequelize');
 
-//Export models and Sequelize for seed and dbSetup
-//module.exports.Sequelize = Sequelize;
-//module.exports.sequelize = sequelize;
+// Export models and Sequelize for seed and dbSetup
+// module.exports.Sequelize = Sequelize;
+// module.exports.sequelize = sequelize;
 
-//var Location = sequelize.import('./location');
+// var Location = sequelize.import('./location');
 module.exports = function(sequelize, Sequelize){
 var model = sequelize.define('user', {
   displayName: Sequelize.STRING,
@@ -34,7 +34,7 @@ model.beforeCreate(function(user, options) {
   return model;
 };
 
-//module.exports = User;
+// module.exports = User;
 
 // module.exports.models = {
 //   Location: Location,

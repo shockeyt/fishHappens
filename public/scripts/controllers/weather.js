@@ -1,3 +1,4 @@
+
 angular.module('fishHappensApp')
 	.controller('WeatherController', WeatherController)
 ;

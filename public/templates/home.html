@@ -13,3 +13,12 @@
 	{{main.currentUser().displayName}}
 	<br>
 </div>
+<section ng-controller="LocaController as locaController">
+	<div ng-repeat="location in locaController.locasList">
+	  <loca 
+			name="{{location.name}}"	
+			elevation="{{location.elevation}}"
+			current-temp="{{location.temp}}"
+	  ></loca>
+	</div>	
+</section>
