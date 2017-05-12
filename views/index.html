@@ -17,6 +17,9 @@
   <!-- jquery -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 
+  <!-- map.js ** this drops in the map -->
+  <!-- <script type="text/javascript" src='scripts/map.js'></script> -->
+
   <!-- bootstrap js -->
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
@@ -31,10 +34,12 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/satellizer/0.13.4/satellizer.min.js"></script>
 
 
+
   <!-- custom script (angular app) -->
   <script type="text/javascript" src="scripts/app.js"></script>
   <script type="text/javascript" src="scripts/controllers/userFront.js"></script>
   <script type="text/javascript" src="scripts/controllers/weather.js"></script>
+
 
   <title>FlyLab</title>
 </head>
@@ -71,9 +76,23 @@
         </div>
       </div>
     </div>
+
+
   </section>
-  <section ng-controller="WeatherController as weather">
-      
+  <section ng-controller="WeatherController as weather"> 
+  <div id='map'></div>
+
+
   </section>
+
+  <!-- <div id='map'></div>
+  <section ng-controller='FlowController as flow'></section>
+     <br><br><br>
+  <div id='dropDataHere'></div>
+  <br><br> -->
+
+ <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwzjycwkTpTqZb9H--_zIMfbiB2KOKwA8&callback=initMap">
+    </script>    
 </body>
 </html>
