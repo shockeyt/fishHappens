@@ -43,5 +43,15 @@ function WeatherController ($http) {
 
 				});
 
+				$http
+					.get('/api/weather/mooncast/' + latlng)
+					.then(function(response) {
+						console.log("am i working still?");
+						console.log("mooncast is: ", response);
+
+					});
+
+
+
 
 }
