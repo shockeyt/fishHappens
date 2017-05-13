@@ -17,10 +17,18 @@
 <<<<<<< HEAD
 <section ng-controller="LocaController as locaController">
 	<div ng-repeat="location in locaController.locasList">
-	  <loca 
-			name="{{location.name}}"	
-			elevation="{{location.elevation}}"
-			current-temp="{{location.temp}}"
+	  <loca
+	  	id="{{location.id}}"
+			citystate="{{location.current.city_state}}"	
+			elevation="{{location.current.elevation}}"
+			feelslike="{{location.current.feels_like}}"
+			currenticon="{{location.current.icon}}"
+			currenttemp="{{location.current.temp}}"
+			pressure="{{location.current.pressure}}"
+			pressuretrend="{{location.current.pressure_trend}}"
+			currentCondition="{{location.current.weather}}"
+			currentwinddir="{{location.current.wind_dir}}"
+			currentwindmph="{{location.current.wind_mph}}"
 	  ></loca>
 	</div>	
 </section>
