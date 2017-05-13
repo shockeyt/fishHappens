@@ -24,7 +24,7 @@ function LocaController ($http) {
 			elevation: '6,678\'',
 			temp: 99,
 			current: {
-				temp: '73',
+				temp: 'TEST locaObject',
 			},
 			fourDay: [{
 				high: "67",
@@ -46,10 +46,6 @@ function LocaController ($http) {
 			console.log((response.data));
 			const currentRes = response.data;
 			vm.locasList[1].current = currentRes;
-			console.log('Who am i??');
-			console.log(vm.locasList);
-			console.log('go city_state:');
-			// console.log(vm.locasList[1].icon);
 		},console.log('NOT SO FAST PLAYBOY'));
 
 	$http
@@ -57,7 +53,6 @@ function LocaController ($http) {
 		.then(function(response) {
 			const fourDayRes = response.data;
 			vm.locasList[1].fourDay = fourDayRes;
-			console.log("am i working still?");
 			console.log("four day is: ", response);
 		});
 
@@ -66,7 +61,6 @@ function LocaController ($http) {
 		.then(function(response) {
 			const astronomyRes = response.data;
 			vm.locasList[1].astronomy = astronomyRes;
-			console.log("am i working still?");
 			console.log("astronomy is: ", response);
 
 		});

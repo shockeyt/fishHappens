@@ -92,13 +92,13 @@ function testCall(){
 
 
 ///////////
-				$http
-					.get('/api/weather/mooncast/' + latlng)
-					.then(function(response) {
-						console.log("am i working still?");
-						console.log("mooncast is: ", response);
+				// $http
+				// 	.get('/api/weather/mooncast/' + latlng)
+				// 	.then(function(response) {
+				// 		console.log("am i working still?");
+				// 		console.log("mooncast is: ", response);
 
-					});
+				// 	});
 
 
 ///////
