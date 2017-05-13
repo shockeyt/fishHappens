@@ -7,9 +7,17 @@ function loca() {
 		replace: true,
 		templateUrl: 'templates/locaDirective.html',
 		scope: {
+			id: '@',
+			citystate: '@',
 			elevation: '@',
-			name: '@',
-			currentTemp: '@',
+			feelslike: '@',
+			currenticon: '@',
+			pressure: '@',
+			pressuretrend: '@',
+			currenttemp: '@',
+			currentcondition: '@',
+			currentwinddir: '@',
+			currentwindmph: '@',
 		}
 	};
 	return directive;

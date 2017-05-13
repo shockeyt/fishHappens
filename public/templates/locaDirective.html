@@ -1,11 +1,22 @@
 <section>
 	<div class="card">
-	<div class="card-header row" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">	<h4 class="">{{name}} {{currentTemp}} {{name}}<span class="pull-right">{{elevation}}</span></h4>
+	<div class="card-header row" data-toggle="collapse" data-target="#collapse{{id}}" aria-expanded="false" aria-controls="collapseExample">
+	<h4 class="">{{citystate}} {{elevation}} <span class="pull-right">{{currenttemp}}</span><img class="pull-right" src="{{currenticon}}"></h4>
 		</div>
-		<div class="collapse" id="collapseExample">
+		<div class="collapse" id="collapse{{id}}">
 		  <div class="card card-block">
-		  	<p>current temperature: {{currentTemp}}</p>
-		    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+		  	<ul>
+		  		<li>City, State {{citystate}}</li>
+		  		<li>Icon Path: {{currenticon}}</li>
+		  		<li>Elevation: {{elevation}}</li>
+		  		<li>Feels Like: {{feelslike}}</li>
+		  		<li>Current Temp: {{currenttemp}}</li>
+		  		<li>Pressure: {{pressure}}</li>
+		  		<li>Pressure Trend: {{pressuretrend}}</li>
+		  		<li>Currently: {{currentcondition}}</li>
+		  		<li>Current Wind Direction: {{currentwinddir}}</li>
+		  		<li>Current Wind MPH: {{currentwindmph}}</li>
+		  	</ul>
 		  </div>
 		</div>
 	</div>
