@@ -8,7 +8,6 @@
 	</div>
 </div>
 
-
 <div ng-show="main.currentUser()">
 	<h3>Current User is:</h3>
 	{{main.currentUser().displayName}}
@@ -25,12 +24,9 @@
 			currenttemp="{{location.current.temp}}"
 			pressure="{{location.current.pressure}}"
 			pressuretrend="{{location.current.pressure_trend}}"
-			currentCondition="{{location.current.weather}}"
+			currentcondition="{{location.current.weather}}"
 			currentwinddir="{{location.current.wind_dir}}"
 			currentwindmph="{{location.current.wind_mph}}"
 	  ></loca>
 	</div>	
 </section>
-
-
-<!-- WE WILL DECIDE LATER WHETHER TO PULL MAP INTO HERE AND PULL LOCA CONTROLLER INTO WEATHER CONTROLLER -->
