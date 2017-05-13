@@ -1,21 +1,18 @@
 <section>
 	<div class="card">
-	<div class="card-header row" data-toggle="collapse" data-target="#collapse{{id}}" aria-expanded="false" aria-controls="collapseExample">
-	<h4 class="">{{citystate}} {{elevation}} <span class="pull-right">{{currenttemp}}</span><img class="pull-right" src="{{currenticon}}"></h4>
+	<div class="card-header row" data-toggle="collapse" data-target="#collapse{{location.id}}" aria-expanded="false" aria-controls="collapseExample">
+	<h4 class="">{{location.current.citystate}} {{location.current.elevation}} <span class="pull-right">{{location.current.temp}}</span><img class="pull-right" src="{{location.current.icon}}"></h4>
 		</div>
-		<div class="collapse" id="collapse{{id}}">
+		<div class="collapse" id="collapse{{location.id}}">
 		  <div class="card card-block">
 		  	<ul>
-<!-- 		  <li>City, State {{citystate}}</li>
-		  		<li>Icon Path: {{currenticon}}</li>
-		  		<li>Elevation: {{elevation}}</li> -->
-		  		<li>Feels Like: {{feelslike}}</li>
-		  		<li>Current Temp: {{currenttemp}}</li>
-		  		<li>Pressure: {{pressure}}</li>
-		  		<li>Pressure Trend: {{pressuretrend}}</li>
-		  		<li>Currently: {{currentcondition}}</li>
-		  		<li>Current Wind Direction: {{currentwinddir}}</li>
-		  		<li>Current Wind MPH: {{currentwindmph}}</li>
+		  		<li>Feels Like: {{location.current.feels_like}}</li>
+		  		<li>Current Temp: {{location.current.temp}}</li>
+		  		<li>Pressure: {{location.current.pressure}}</li>
+		  		<li>Pressure Trend: {{location.current.pressure_trend}}</li>
+		  		<li>Currently: {{location.current.weather}}</li>
+		  		<li>Current Wind Direction: {{location.current.wind_dir}}</li>
+		  		<li>Current Wind MPH: {{location.current.wind_mph}}</li>
 		  	</ul>
 		  </div>
 		</div>

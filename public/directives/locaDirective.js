@@ -7,7 +7,7 @@ function loca() {
 		replace: true,
 		templateUrl: 'templates/locaDirective.html',
 		scope: {
-			locall: '=',
+			location: '=',
 			// id: '@',
 			// citystate: '@',
 			// elevation: '@',
