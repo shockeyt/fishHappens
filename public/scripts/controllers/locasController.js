@@ -2,8 +2,6 @@ angular.module('fishHappensApp')
 	.controller('LocaController', LocaController)
 ;
 
-
-
 LocaController.$inject = ['$http'];
 function LocaController ($http) {
 	let vm = this;
