@@ -49,8 +49,7 @@ function LocaController ($http) {
 			console.log('Who am i??');
 			console.log(vm.locasList);
 			console.log('go city_state:');
-			// console.log(vm.locasList[1].icon);
-		},console.log('NOT SO FAST PLAYBOY'));
+		},console.log('NOT SO FAST PLAYBOY, CURRENT ERROR'));
 
 	$http
 		.get('/api/weather/fourday/' + latlng)
