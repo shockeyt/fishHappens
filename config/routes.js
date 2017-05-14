@@ -49,7 +49,7 @@ router.route('/api/location')
 router.route('/api/location/:id')
 	.get(locationController.show);
 //create
-router.route('/api/location')
+router.route('/api/location/')
 	.post(locationController.create);	
 //update
 router.route('/api/location/:id')

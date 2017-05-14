@@ -49,6 +49,8 @@ function LocaController ($http) {
 			console.log('Who am i??');
 			console.log(vm.locasList);
 			console.log('go city_state:');
+
+
 		},console.log('NOT SO FAST PLAYBOY, CURRENT ERROR'));
 
 	$http
@@ -67,4 +69,6 @@ function LocaController ($http) {
 			console.log("astronomy is: ", response);
 
 		});
+
+
 }

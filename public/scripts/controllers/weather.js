@@ -141,7 +141,21 @@ let fishSpot;
 						});
         });
     }
- 
+
+//SAVE TO DATABASE
+
+	let coordObject = {};	
+	function saveLocation(){
+		//console.log(typeof fullCoordinates);
+		coordObject.coordinates = fullCoordinates;
+		console.log(coordObject);	
+		$http
+		.post('/api/location/', coordObject)
+		.then(function(response){
+			console.log("saved: ", response);
+		});
+	}
+
 	window.initMap = function(){
 	    // used to hold all of the markers
 	    let markerArray = [];
@@ -176,13 +190,13 @@ let fishSpot;
 
 
     //**Custom info window for making new spot**
-    let newSpotForm = new google.maps.InfoWindow({
+	let newSpotForm = new google.maps.InfoWindow({
         content: "<form>" +
                   "Spot Name:" + "<br>" +
                   "<input type='text' id='spotName' name='spotName' placeholder=''>" +
                   "<br>" +
-                  "<button id='oneWeek'>One Week</button>" +
-                  "<input type='submit' id='submit' value='submit'>" + "<br><br>" +
+                  "<button id='saveSpot'>Save Spot</button>" +
+                  "<br><br>" +
                   "</form>"
     });
 
@@ -198,6 +212,12 @@ let fishSpot;
 	fullCoordinates = (fishSpot.lat + ',' + fishSpot.lng);
 	   console.log(fullCoordinates);
 
+
+	$('#saveSpot').click(function(e){
+		e.preventDefault();
+
+		saveLocation();
+	});
 	//CLICK CALLS*********   
 	   currentWeather();
 	   fourDayWeather();
@@ -205,6 +225,7 @@ let fishSpot;
 	   moonData();
 	   currentFlowCall();
 	   pastWeekFlow();
+
 	//*********************
 
 	}//close place marker
