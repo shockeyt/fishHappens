@@ -90,6 +90,20 @@ let fishSpot;
     }
         
 
+//SAVE TO DATABASE
+
+	let coordObject = {};	
+	function saveLocation(){
+		//console.log(typeof fullCoordinates);
+		coordObject.coordinates = fullCoordinates;
+		console.log(coordObject);	
+		$http
+		.post('/api/location/', coordObject)
+		.then(function(response){
+			console.log("saved: ", response);
+		});
+	}
+
 
 	window.initMap = function(){
 	    // used to hold all of the markers
@@ -156,6 +170,7 @@ let fishSpot;
 	   moonData();
 	   currentFlowCall();
 	   pastWeekFlow();
+	   saveLocation();
 	//*********************
 
 	}//close place marker

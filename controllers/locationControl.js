@@ -17,6 +17,7 @@ function show(req, res) {
 }
 
 function create(req, res) {
+	console.log(req.body);
 	Location.create(req.body)
 	.then(function(location) {
 		if(!location) return error(res, "not saved");
