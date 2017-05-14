@@ -87,7 +87,7 @@ let myChart = new Chart(ctx, {
         }
     }
 });
-			
+
 		},console.log('NOT SO FAST PLAYBOY, CURRENT ERROR'));
 
 	$http
