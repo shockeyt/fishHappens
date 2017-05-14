@@ -8,15 +8,38 @@ angular.module('fishHappensApp')
 WeatherController.$inject = ['$http'];
 function WeatherController ($http) {
 	let vm = this;
-	let day = {
-		dayHigh: "",
-		dayLow: "",
-		dayConditions: "",
-		dayMaxWind: "",
-		dayIcon: "",
-		dayName: ""
+
+	let locaObject = {
+		id: 0,
+		current: {},
+		fourDay: [],
+		astronomy: {},
+		moonData: {},
+		currentFlow: {},
+		pastWeekFlow: {},
 	};
-	vm.fourDays = [];
+
+	vm.locasList = [
+		// {
+		// 	name: 'Nepal',
+		// 	elevation: '6,678\'',
+		// 	temp: 99,
+		// 	current: {
+		// 		temp: 'TEST locaObject',
+		// 	},
+		// 	fourDay: [{
+		// 		high: "67",
+		// 	},
+		// 	{
+		// 		high: "88",
+		// 	}],
+		// 	moon: {
+		// 		moonrise: '5:45',
+		// 	}
+		// },
+		locaObject,
+	];
+
 	// let latlng = "43.856501,-110.480835";
 
 	console.log("fourday controller is working");
@@ -25,7 +48,6 @@ function WeatherController ($http) {
 
 let fullCoordinates;	
 let fishSpot;
-
 
 //************************//
 //***HTTP CALLS HERE******//
@@ -37,7 +59,7 @@ let fishSpot;
 		.then(function(response) {
 			console.log("am i working still?");
 			console.log("current day is: ", response);
-
+			vm.locasList[0].current = response.data;
 		});
 	}
 	
@@ -80,15 +102,45 @@ let fishSpot;
           	console.log(response.data);
         });
 	}
-
     function pastWeekFlow(){
         $http
         .post('/fishweek', fishSpot)
         .then(function(response){
-            console.log(response.data);
+            console.log(response);
+            const pastWeekFlowArray = response.data.parsedArray;
+            const id = vm.locasList[0].id;
+            const idString = "myChart" + id;
+						var ctx = document.getElementById(idString);
+						let myChart = new Chart(ctx, {
+						    type: 'line',
+						    data: {
+					        labels: pastWeekFlowArray, // this array is passed in only to provide a label for each piece of 
+					        // flow data, and then the labels are hidden. This is to comply with how chart.js sets up their charts
+					        datasets: [{
+					            label: 'Past 7 days',
+					            data: pastWeekFlowArray,
+					            backgroundColor: 'rgba(66, 134, 244, .2)',
+					            borderColor: [
+					                'rgba(66, 134, 244, 1)',
+					            ],
+					            borderWidth: 1
+					        },]
+						    },
+						    options: {
+						        scales: {
+						            yAxes: [{
+						                ticks: {
+						                    beginAtZero:false
+						                }
+						            }],
+						            xAxes: [{
+						            	display: false
+						            }]
+						        }
+						    }
+						});
         });
     }
-        
 
 //SAVE TO DATABASE
 
@@ -103,7 +155,6 @@ let fishSpot;
 			console.log("saved: ", response);
 		});
 	}
-
 
 	window.initMap = function(){
 	    // used to hold all of the markers
@@ -147,7 +198,6 @@ let fishSpot;
                   "<button id='saveSpot'>Save Spot</button>" +
                   "<br><br>" +
                   "</form>"
-      
     });
 
     //**Opens new-spot form so that data can be pulled from form**
@@ -155,19 +205,19 @@ let fishSpot;
 
  
     fishSpot = {
-        lat: fishMarker.position.lat(),
-        lng: fishMarker.position.lng()
+	    lat: fishMarker.position.lat(),
+	    lng: fishMarker.position.lng()
     };
        
 	fullCoordinates = (fishSpot.lat + ',' + fishSpot.lng);
 	   console.log(fullCoordinates);
+
 
 	$('#saveSpot').click(function(e){
 		e.preventDefault();
 
 		saveLocation();
 	});
-	
 	//CLICK CALLS*********   
 	   currentWeather();
 	   fourDayWeather();
@@ -183,5 +233,4 @@ let fishSpot;
 	};//close initmap
 	window.initMap();	
 
-	
 }//close weather WeatherController

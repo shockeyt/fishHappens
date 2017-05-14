@@ -50,6 +50,7 @@ function LocaController ($http) {
 	// 		console.log(vm.locasList);
 	// 		console.log('go city_state:');
 
+
 	// 	var ctx = document.getElementById("myChart");
 // let myChart = new Chart(ctx, {
 //     type: 'line',
@@ -87,6 +88,7 @@ function LocaController ($http) {
 //         }
 //     }
 // });
+
 
 // 		},console.log('NOT SO FAST PLAYBOY, CURRENT ERROR'));
 
