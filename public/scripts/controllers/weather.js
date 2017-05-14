@@ -70,12 +70,10 @@ function WeatherController ($http) {
 		.then(function(response) {
 			console.log("am i working still?");
 			console.log("mooncast is: ", response);
-			
 		});
 	}
 
 	//STREAM CALLS
-
 	function currentFlowCall(){
         $http
         .post('/fishspots', fishSpot)
@@ -123,7 +121,6 @@ function WeatherController ($http) {
         });
     } 
 
-
 //SAVE TO DATABASE
 
 	let coordObject = {};	
@@ -159,8 +156,6 @@ function WeatherController ($http) {
 	    map.addListener('click', function(e) {
 	          placeMarkerAndPanTo(e.latLng, map);
 	          });
-   
-     
 
 	// Creates a new marker and saves it to the Marker Array //
 	function placeMarkerAndPanTo(latLng, map) {
