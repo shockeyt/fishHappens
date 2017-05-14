@@ -8,17 +8,6 @@ function loca() {
 		templateUrl: 'templates/locaDirective.html',
 		scope: {
 			location: '=',
-			// id: '@',
-			// citystate: '@',
-			// elevation: '@',
-			// feelslike: '@',
-			// currenticon: '@',
-			// pressure: '@',
-			// pressuretrend: '@',
-			// currenttemp: '@',
-			// currentcondition: '@',
-			// currentwinddir: '@',
-			// currentwindmph: '@',
 		}
 	};
 	return directive;

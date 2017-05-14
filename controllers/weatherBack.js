@@ -136,11 +136,6 @@ function getFutureMoon (req, res) {
 	});
 }
 
-
-
-
-
-
 module.exports = {
 	getFourDay: getFourDay,
 	getCurrentDay: getCurrentDay,
