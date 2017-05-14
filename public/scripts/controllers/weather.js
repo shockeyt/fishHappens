@@ -8,15 +8,38 @@ angular.module('fishHappensApp')
 WeatherController.$inject = ['$http'];
 function WeatherController ($http) {
 	let vm = this;
-	let day = {
-		dayHigh: "",
-		dayLow: "",
-		dayConditions: "",
-		dayMaxWind: "",
-		dayIcon: "",
-		dayName: ""
+
+	let locaObject = {
+		id: 1,
+		current: {},
+		fourDay: [],
+		astronomy: {},
+		moonData: {},
+		currentFlow: {},
+		pastWeekFlow: {},
 	};
-	vm.fourDays = [];
+
+	vm.locasList = [
+		{
+			name: 'Nepal',
+			elevation: '6,678\'',
+			temp: 99,
+			current: {
+				temp: 'TEST locaObject',
+			},
+			fourDay: [{
+				high: "67",
+			},
+			{
+				high: "88",
+			}],
+			moon: {
+				moonrise: '5:45',
+			}
+		},
+		locaObject,
+	];
+
 	// let latlng = "43.856501,-110.480835";
 
 	console.log("fourday controller is working");
@@ -25,7 +48,6 @@ function WeatherController ($http) {
 
 let fullCoordinates;	
 let fishSpot;
-
 
 //************************//
 //***HTTP CALLS HERE******//
@@ -37,7 +59,7 @@ let fishSpot;
 		.then(function(response) {
 			console.log("am i working still?");
 			console.log("current day is: ", response);
-
+			vm.locasList[1].current = response.data;
 		});
 	}
 	
