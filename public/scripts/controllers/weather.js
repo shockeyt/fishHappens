@@ -139,13 +139,13 @@ let fishSpot;
 
 
     //**Custom info window for making new spot**
-    let newSpotForm = new google.maps.InfoWindow({
+	let newSpotForm = new google.maps.InfoWindow({
         content: "<form>" +
                   "Spot Name:" + "<br>" +
                   "<input type='text' id='spotName' name='spotName' placeholder=''>" +
                   "<br>" +
-                  "<button id='oneWeek'>One Week</button>" +
-                  "<input type='submit' id='submit' value='submit'>" + "<br><br>" +
+                  "<button id='saveSpot'>Save Spot</button>" +
+                  "<br><br>" +
                   "</form>"
       
     });
@@ -162,6 +162,11 @@ let fishSpot;
 	fullCoordinates = (fishSpot.lat + ',' + fishSpot.lng);
 	   console.log(fullCoordinates);
 
+	$('#saveSpot').click(function(e){
+		e.preventDefault();
+
+		saveLocation();
+	});
 	
 	//CLICK CALLS*********   
 	   currentWeather();
@@ -170,7 +175,7 @@ let fishSpot;
 	   moonData();
 	   currentFlowCall();
 	   pastWeekFlow();
-	   saveLocation();
+
 	//*********************
 
 	}//close place marker
