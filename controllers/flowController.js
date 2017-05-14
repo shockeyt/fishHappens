@@ -89,7 +89,21 @@ function getWeekOfFlow(body){
 			valueArray.push(flowData[i].value);
 		}
 		console.log('Current Weekly Flow Data: ' + valueArray);
-		return('Current Weekly Flow Data at ' + stationName + valueArray);
+		
+		function parsedArray(){
+		for(i=0;i<valueArray.length;i++){
+			valueArray[i] = parseFloat(valueArray[i]);
+		}
+		return valueArray;
+	}
+
+		console.log('the parsedarray is... ' + typeof parsedArray()[0]);
+		// return('Current Weekly Flow Data at ' + stationName + parsedArray());
+		const returnObj = {
+			stationName: stationName,
+			parsedArray: parsedArray(),
+		};
+		return (returnObj);
 	}
 }
 
