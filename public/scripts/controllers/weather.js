@@ -20,23 +20,6 @@ function WeatherController ($http) {
 	};
 
 	vm.locasList = [
-		// {
-		// 	name: 'Nepal',
-		// 	elevation: '6,678\'',
-		// 	temp: 99,
-		// 	current: {
-		// 		temp: 'TEST locaObject',
-		// 	},
-		// 	fourDay: [{
-		// 		high: "67",
-		// 	},
-		// 	{
-		// 		high: "88",
-		// 	}],
-		// 	moon: {
-		// 		moonrise: '5:45',
-		// 	}
-		// },
 		locaObject,
 	];
 
@@ -69,7 +52,7 @@ let fishSpot;
 		.then(function(response) {
 			console.log("am i working still?");
 			console.log("four day is: ", response);
-
+			vm.locasList[0].fourDay = response.data;
 		});
 	}
 
@@ -79,7 +62,7 @@ let fishSpot;
 		.then(function(response) {
 			console.log("am i working still?");
 			console.log("astronomy is: ", response);
-
+			vm.locasList[0].astronomy = response.data;
 		});
 	}
 
@@ -89,7 +72,7 @@ let fishSpot;
 		.then(function(response) {
 			console.log("am i working still?");
 			console.log("mooncast is: ", response);
-
+			
 		});
 	}
 
@@ -140,8 +123,22 @@ let fishSpot;
 						    }
 						});
         });
-    }
- 
+    } 
+
+//SAVE TO DATABASE
+
+	let coordObject = {};	
+	function saveLocation(){
+		//console.log(typeof fullCoordinates);
+		coordObject.coordinates = fullCoordinates;
+		console.log(coordObject);	
+		$http
+		.post('/api/location/', coordObject)
+		.then(function(response){
+			console.log("saved: ", response);
+		});
+	}
+
 	window.initMap = function(){
 	    // used to hold all of the markers
 	    let markerArray = [];
@@ -176,13 +173,13 @@ let fishSpot;
 
 
     //**Custom info window for making new spot**
-    let newSpotForm = new google.maps.InfoWindow({
+	let newSpotForm = new google.maps.InfoWindow({
         content: "<form>" +
                   "Spot Name:" + "<br>" +
                   "<input type='text' id='spotName' name='spotName' placeholder=''>" +
                   "<br>" +
-                  "<button id='oneWeek'>One Week</button>" +
-                  "<input type='submit' id='submit' value='submit'>" + "<br><br>" +
+                  "<button id='saveSpot'>Save Spot</button>" +
+                  "<br><br>" +
                   "</form>"
     });
 
@@ -198,6 +195,12 @@ let fishSpot;
 	fullCoordinates = (fishSpot.lat + ',' + fishSpot.lng);
 	   console.log(fullCoordinates);
 
+	$('#saveSpot').click(function(e){
+		e.preventDefault();
+
+		saveLocation();
+	});
+	
 	//CLICK CALLS*********   
 	   currentWeather();
 	   fourDayWeather();
@@ -205,6 +208,7 @@ let fishSpot;
 	   moonData();
 	   currentFlowCall();
 	   pastWeekFlow();
+
 	//*********************
 
 	}//close place marker

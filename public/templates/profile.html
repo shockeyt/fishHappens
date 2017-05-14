@@ -8,3 +8,12 @@
 <hr>
 <a href="#" ng-click="profile.showEditForm=true" ng-hide="profile.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
 
+<section ng-controller="SpotController as spot">
+	<button class="btn btn-danger delete" ng-click="spot.testButton()">TEST</button>
+	<ul>
+		<li ng-repeat="places in spot.locations">
+			{{places.coordinates}}
+			
+		</li>
+	</ul>
+</section> 
