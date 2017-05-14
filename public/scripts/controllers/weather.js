@@ -124,8 +124,6 @@ let fishSpot;
     markerArray.push(fishMarker);
 
 
-
-
     //**Custom info window for making new spot**
     let newSpotForm = new google.maps.InfoWindow({
         content: "<form>" +
