@@ -3,8 +3,6 @@ angular.module('fishHappensApp')
 	.controller('WeatherController', WeatherController)
 ;
 
-
-
 WeatherController.$inject = ['$http'];
 function WeatherController ($http) {
 	let vm = this;
@@ -26,16 +24,16 @@ function WeatherController ($http) {
 	// let latlng = "43.856501,-110.480835";
 
 	console.log("fourday controller is working");
-//**********************************//
-//***VARIABLES FOR HTTP REQUESTS****//
+	//**********************************//
+	//***VARIABLES FOR HTTP REQUESTS****//
 
-let fullCoordinates;	
-let fishSpot;
+	let fullCoordinates;	
+	let fishSpot;
 
-//************************//
-//***HTTP CALLS HERE******//
+	//************************//
+	//***HTTP CALLS HERE******//
 
-//WEATHER CALLS
+	//WEATHER CALLS
 	function currentWeather(){
        	$http
 		.get('/api/weather/current/' + fullCoordinates)
@@ -76,7 +74,7 @@ let fishSpot;
 		});
 	}
 
-//STREAM CALLS
+	//STREAM CALLS
 
 	function currentFlowCall(){
         $http
@@ -124,6 +122,7 @@ let fishSpot;
 						});
         });
     } 
+
 
 //SAVE TO DATABASE
 
@@ -200,7 +199,7 @@ let fishSpot;
 
 		saveLocation();
 	});
-	
+
 	//CLICK CALLS*********   
 	   currentWeather();
 	   fourDayWeather();
