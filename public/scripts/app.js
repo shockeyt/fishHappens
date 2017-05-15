@@ -5,7 +5,6 @@ angular.module('fishHappensApp',
     ])
   .config(configRoutes);
 
-
 ////////////
 // ROUTES //
 ////////////
