@@ -62,14 +62,19 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
         loginRequired: loginRequired
       }
     })
-    .state('landing', {
-      url: '/landing',
-      templateUrl: 'templates/landing.html'
-
-    })
     .state('hatches', {
       url: '/hatches',
       templateUrl: 'templates/hatches.html'
+
+    })
+    .state('landing', {
+      url: '/',
+      templateUrl: 'templates/landing.html'
+
+    })
+    .state('about', {
+      url: '/about',
+      templateUrl: 'templates/about.html'
 
     })
     ;
