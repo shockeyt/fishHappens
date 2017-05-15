@@ -96,4 +96,3 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
       return deferred.promise;
     }
 }
-

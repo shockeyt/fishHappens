@@ -1,11 +1,15 @@
 <section>
 	<div class="card">
 	<div class="card-header row" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapseExample">
+
 	<h4 class="">{{location.id}}{{location.current.city_state}} {{location.current.elevation}} <span class="pull-right">{{location.current.temp}}</span><img class="pull-right" src="{{location.current.icon}}"></h4>
+
+	<h4 class="">{{location.current.city_state}} {{location.current.elevation}} <span class="pull-right">{{location.current.temp}}</span><img class="pull-right" src="{{location.current.icon}}"></h4>
+
 		</div>
 		<div class="collapse" id="collapse">
 		  <div class="card card-block">
-		  	<ul>
+		  	<ul>Current Conditions
 		  		<li>Feels Like: {{location.current.feels_like}}</li>
 		  		<li>Current Temp: {{location.current.temp}}</li>
 		  		<li>Pressure: {{location.current.pressure}}</li>
@@ -15,13 +19,45 @@
 		  		<li>Current Wind MPH: {{location.current.wind_mph}}</li>
 		  	</ul>
 		  </div>
+		  	<ul>Four Day Forecast
+		  		<li>{{location.fourDay[0].weekday}}</li>
+		  		<li>High: {{location.fourDay[0].high}}</li>
+		  		<li>Low: {{location.fourDay[0].low}}</li>
+		  		<li>{{location.fourDay[0].conditions}}</li>
+		  		<li><img src="{{location.fourDay[0].icon}}"></li>
+		  		<li>Max Wind: {{location.fourDay[0].maxwind}}</li>
+
+		  		<li>{{location.fourDay[1].weekday}}</li>
+		  		<li>High: {{location.fourDay[1].high}}</li>
+		  		<li>Low: {{location.fourDay[1].low}}</li>
+		  		<li>{{location.fourDay[1].conditions}}</li>
+		  		<li><img src="{{location.fourDay[1].icon}}"></li>
+		  		<li>Max Wind: {{location.fourDay[1].maxwind}}</li>
+
+		  		<li>{{location.fourDay[2].weekday}}</li>
+		  		<li>High: {{location.fourDay[2].high}}</li>
+		  		<li>Low: {{location.fourDay[2].low}}</li>
+		  		<li>{{location.fourDay[2].conditions}}</li>
+		  		<li><img src="{{location.fourDay[2].icon}}"></li>
+		  		<li>Max Wind: {{location.fourDay[2].maxwind}}</li>
+
+		  		<li>{{location.fourDay[3].weekday}}</li>
+		  		<li>High: {{location.fourDay[3].high}}</li>
+		  		<li>Low: {{location.fourDay[3].low}}</li>
+		  		<li>{{location.fourDay[3].conditions}}</li>
+		  		<li><img src="{{location.fourDay[3].icon}}"></li>
+		  		<li>Max Wind: {{location.fourDay[3].maxwind}}</li>
+		  	</ul>
 <!-- <canvas id="myChart" width="200" height="200"></canvas> -->
 
 		</div>
 
+
 		<canvas id="myChart" class="chart"></canvas>
 
-	</div>
+		<p>Past 7 Days of Water Flow (cfpm)</p>
+		<canvas id="myChart{{location.id}}" class="chart"></canvas>
+
 
 	</div>
 </section>
