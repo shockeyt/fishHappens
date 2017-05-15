@@ -21,7 +21,7 @@ var routes = require('./config/routes');
 app.use(routes);
 
 // Catch ALL Route
-app.get(['/', '/home', '/signup', '/login', '/profile', '/landing', '/hatches', '/about'], function (req, res) {
+app.get(['/', '/home', '/signup', '/login', '/profile', '/landing', '/hatches', '/about', '/patterns'], function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
