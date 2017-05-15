@@ -77,6 +77,11 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'templates/about.html'
 
     })
+    .state('patterns', {
+      url: '/patterns',
+      templateUrl: 'templates/patterns.html'
+
+    })
     ;
     
 

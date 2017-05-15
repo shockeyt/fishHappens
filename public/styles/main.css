@@ -37,6 +37,15 @@ h1, h2, h3, h4, p, li {
 	display: block;
 	height: 800px;
 }
+
+.patterns {
+  background: url("../images/flypatterns1.jpg")no-repeat;
+  background-size: 600px;
+  background-position: center;
+  display: block;
+  height: 600px;
+}
+
 .flex-container {
   padding: 0;
   margin: 0;
