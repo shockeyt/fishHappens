@@ -1,7 +1,7 @@
 //Connect
 var Sequelize = require('sequelize');
 var env = require('../.env.js');
-var sequelize = new Sequelize('postgres://' + env.user + '@localhost:5432/satellizer_sequelize');
+var sequelize = new Sequelize(process.env.DATABASE_URL || 'postgres://' + env.user + '@localhost:5432/satellizer_sequelize');
 console.log(process.env.USERNAME);
 // Export models and Sequelize for seed and dbSetup
 module.exports.Sequelize = Sequelize;
