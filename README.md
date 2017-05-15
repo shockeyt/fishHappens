@@ -1,6 +1,6 @@
 # fishHappens: a fly fishing app
 
-#[Link to Heroku](https://lit-lake-26661.herokuapp.com/)
+# [Link to Heroku](https://lit-lake-26661.herokuapp.com/)
 
 # [Link to our Trello](https://trello.com/b/vDSXXHKg/fish-happens-app-development)
 
