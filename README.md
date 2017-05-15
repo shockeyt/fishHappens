@@ -1,6 +1,6 @@
 # fishHappens: a fly fishing app
 
-#[Link to Heroku](https://thawing-ravine-40677.herokuapp.com/)
+#[Link to Heroku](https://lit-lake-26661.herokuapp.com/)
 
 # [Link to our Trello](https://trello.com/b/vDSXXHKg/fish-happens-app-development)
 
@@ -25,3 +25,58 @@ There is a hatch chart page that displays the current insect varieties for Color
 * (/about) About the dev team
 * (/profile) User saved spots
 * (/hatches) Hatch chart
+* (/patterns) Fly patterns
+
+
+# Research findings
+
+Results show that weather and moon cycles (fishing times) are the most important.  Other categories receiving votes are: waterflow data, fly recommendations, sharing to friends, logging location notes.
+(Expert)
+* Considers time of day, type of fish, visual topography and water conditions.
+* Same spot if few hours, different spots if more time.
+* Looks online for info, local specific only
+* Wants to save notes and save spot info
+* Would share spots with friends
+
+# Technologies used
+
+* Satellizer
+* Sequelize
+* Sequellizer
+* Bcrypt
+* Chart.js
+* Express
+* Request
+* CSS
+* Moment
+* jQuery
+* Bootstrap
+* Angular
+* UI Router
+
+# Future Plans
+
+* Adding moon data with fishing times
+* Adding notes for favorite spots
+* Saving snapshot of current weather for spot with notes
+* Favorite spots save for users
+* Custom fly pattern and hatch chart recommendations
+* Ability to share a spot/post link
+* Nearby photos/videos from location
+
+# Contributers
+
+## Tyler Shockey
+Tyler is the fearless leader, he helped pull us up by our bootstrap CDN's when we were feeling down.
+
+## Bob Schank
+Bob really loves SQL and fishing.  He was the chart master and template wizard.
+
+## Alex Creighton
+Alex writes great comments.  He was the Heroku sensei and design specialist.   
+
+
+
+
+
+
