@@ -11,7 +11,9 @@ function SpotController ($http) {
 
 	vm.loca = [{
 		id: "Secret Id",
-		current: {},
+		current: {
+			city_state: 'Click a location\'s Data button'
+		},
 		fourDay: [],
 		astronomy: {},
 		moonData: {},
