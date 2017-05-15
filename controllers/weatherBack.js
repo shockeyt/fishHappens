@@ -62,17 +62,17 @@ function getCurrentDay (req, res) {
 		// console.log("icon: ", parseBody.current_observation.icon_url);
 
 		let mElevation = parseFloat(parseBody.current_observation.display_location.elevation);
-		let convertElevation = mElevation * 3.28;
+		let convertElevation = Math.round(mElevation * 3.28);
 		//console.log("elevation is: ", mElevation);
 		//console.log("converted elevation is: ", convertElevation);
 
 		let currentDay = {
 			city_state: parseBody.current_observation.display_location.full,
-			elevation: convertElevation,
-			temp: parseBody.current_observation.temp_f,
+			elevation: "     Elev. " + convertElevation + "'",
+			temp: parseBody.current_observation.temp_f + "°F",
 			pressure: parseBody.current_observation.pressure_in,
 			pressure_trend: parseBody.current_observation.pressure_trend,
-			feels_like: parseBody.current_observation.feelslike_f,
+			feels_like: parseBody.current_observation.feelslike_f + "°F",
 			wind_mph: parseBody.current_observation.wind_mph,
 			wind_dir: parseBody.current_observation.wind_dir,
 			weather: parseBody.current_observation.weather,
