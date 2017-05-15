@@ -1,16 +1,15 @@
-<h1>HOME Page</h1>
-<hr>
+<h1>Search for Spots</h1>
+<!-- <hr>
 <p ng-if="home.posts.length === 0">No posts yet.</p>
 
 <div ng-if="home.posts.length > 0">
 	<div ng-repeat="post in home.posts">
 		<p><strong>{{post.title}}</strong> - {{post.content}}</p><br>
 	</div>
-</div>
+</div> -->
 
-<div ng-show="main.currentUser()">
-	<h3>Current User is:</h3>
-	{{main.currentUser().displayName}}
+<div ng-show="!main.currentUser()">
+	<h3>Sign up / Log in to save a location</h3>
 	<br>
 </div>
 <section ng-controller="WeatherController as weatherController">
