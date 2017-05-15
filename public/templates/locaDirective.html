@@ -1,9 +1,9 @@
 <section>
 	<div class="card">
-	<div class="card-header row" data-toggle="collapse" data-target="#collapse{{location.id}}" aria-expanded="false" aria-controls="collapseExample">
-	<h4 class="">{{location.current.city_state}} {{location.current.elevation}} <span class="pull-right">{{location.current.temp}}</span><img class="pull-right" src="{{location.current.icon}}"></h4>
+	<div class="card-header row" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapseExample">
+	<h4 class="">{{location.id}}{{location.current.city_state}} {{location.current.elevation}} <span class="pull-right">{{location.current.temp}}</span><img class="pull-right" src="{{location.current.icon}}"></h4>
 		</div>
-		<div class="collapse" id="collapse{{location.id}}">
+		<div class="collapse" id="collapse">
 		  <div class="card card-block">
 		  	<ul>
 		  		<li>Feels Like: {{location.current.feels_like}}</li>
@@ -19,7 +19,7 @@
 
 		</div>
 
-		<canvas id="myChart{{location.id}}" class="chart"></canvas>
+		<canvas id="myChart" class="chart"></canvas>
 
 	</div>
 

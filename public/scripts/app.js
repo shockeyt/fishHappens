@@ -23,7 +23,7 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
 
   $stateProvider
     .state('home', {
-      url: '/',
+      url: '/home',
       templateUrl: 'templates/home.html',
       controller: 'HomeController',
       controllerAs: 'home'
@@ -62,7 +62,18 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         loginRequired: loginRequired
       }
-    });
+    })
+    .state('landing', {
+      url: '/landing',
+      templateUrl: 'templates/landing.html'
+
+    })
+    .state('hatches', {
+      url: '/hatches',
+      templateUrl: 'templates/hatches.html'
+
+    })
+    ;
     
 
     function skipIfLoggedIn($q, $auth) {

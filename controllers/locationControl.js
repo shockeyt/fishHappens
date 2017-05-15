@@ -45,6 +45,7 @@ function destroy(req, res) {
 	.then(function() {
 		res.redirect('/location');
 	});
+
 }
 
 

@@ -108,9 +108,7 @@ let fishSpot;
         .then(function(response){
             console.log(response);
             const pastWeekFlowArray = response.data.parsedArray;
-            const id = vm.locasList[0].id;
-            const idString = "myChart" + id;
-						var ctx = document.getElementById(idString);
+						var ctx = document.getElementById("myChart");
 						let myChart = new Chart(ctx, {
 						    type: 'line',
 						    data: {

@@ -59,6 +59,7 @@
   <title>FlyLab</title>
 </head>
 <body>
+  <div class="container-fluid">
   <section ng-controller="MainController as main">
     <nav class="navbar navbar-default">
       <div class="container">
@@ -69,11 +70,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">FlyLab</a>
+          <a class="navbar-brand" href="/">Fish Happens</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
+            <li><a href="/home">Search</a></li>
+            <li><a href="/hatches">Hatches</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li ng-show="!main.currentUser()"><a ui-sref="signup">Sign Up</a></li>
@@ -96,9 +98,9 @@
   </section>
 
   <section ng-controller="WeatherController as weather"> 
-  <p>CHART</p>
-  <div id='map'></div>
-  <p>CHART</p>
+
+ <!--  <div id='map'></div> -->
+
 
 
   </section>
@@ -115,6 +117,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwzjycwkTpTqZb9H--_zIMfbiB2KOKwA8&callback=initMap">
     </script>    
 <!--   <canvas id="myChart" width="200" height="200"></canvas> -->
+  </div> <!-- fluid container -->
 </body>
     <!-- <script type="text/javascript" src="scripts/chartin.js"></script> -->
 </html>
