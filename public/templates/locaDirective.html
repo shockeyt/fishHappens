@@ -15,13 +15,13 @@
 			  <div id="current" class="tab-pane fade in active">
 			    <h3>Current Conditions</h3>
 					<ul>
-			  		<li>Feels Like: {{location.current.feels_like}}</li>
-			  		<li>Current Temp: {{location.current.temp}}</li>
-			  		<li>Pressure: {{location.current.pressure}}</li>
-			  		<li>Pressure Trend: {{location.current.pressure_trend}}</li>
-			  		<li>Currently: {{location.current.weather}}</li>
-			  		<li>Current Wind Direction: {{location.current.wind_dir}}</li>
-			  		<li>Current Wind MPH: {{location.current.wind_mph}}</li>
+						<li class="currentConditions">Current Temp: {{location.current.temp}}</li>
+			  		<li class="currentConditions">Feels Like: {{location.current.feels_like}}</li>
+			  		<li class="currentConditions">Pressure: {{location.current.pressure}}</li>
+			  		<li class="currentConditions">Pressure Trend: {{location.current.pressure_trend}}</li>
+			  		<li class="currentConditions">Currently: {{location.current.weather}}</li>
+			  		<li class="currentConditions">Current Wind Direction: {{location.current.wind_dir}}</li>
+			  		<li class="currentConditions">Current Wind MPH: {{location.current.wind_mph}}</li>
 			  	</ul>
 			  	<p>Past 7 Days of Water Flow (cfpm)</p>
 					<canvas id="myChart" class="chart"></canvas>

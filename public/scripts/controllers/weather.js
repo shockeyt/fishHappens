@@ -152,8 +152,12 @@ function WeatherController ($http) {
 		});
 	}
 
+
 // ****Initiates Map on Page ******//
 // ********************************//
+
+
+//************** MAPS ************************************
 
 	window.initMap = function(){
 	    // used to hold all of the markers
@@ -235,7 +239,7 @@ function WeatherController ($http) {
 
 		//CLICK CALLS*********   
 		   currentWeather();
-		   // fourDayWeather();
+		   fourDayWeather();
 		   // astronomyWeather();
 		   moonData();
 		   currentFlowCall();
