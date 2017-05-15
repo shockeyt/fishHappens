@@ -2,39 +2,31 @@ console.log("Chartin' off right.");
 
 // import Chart from './node_modules/chart.js';
 
-var ctx = document.getElementById("myChart");
-let myChart = new Chart(ctx, {
-    type: 'line',
+var x = document.getElementById("test");
+let myChart = new Chart(x, {
+    type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Yesterday", "Current"],
-        datasets: [{
-            label: 'Past 7 days',
-            data: [12, 19.2, 3, 5, 2, 3],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: [
-                'rgba(255,99,132,1)',
-            ],
-            borderWidth: 1
-        },
-            {label: 'temerature',
-            data: [2, 4, 19, 5, 17, 3],
-            backgroundColor: [
-                'rgba(153, 102, 255, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-            ],
-            borderWidth: 1
-        },
-
-        ]
+    labels: Temps, // this array is passed in only to provide a label for each piece of 
+    // flow data, and then the labels are hidden. This is to comply with how chart.js sets up their charts
+    datasets: [{
+        label: chartLabel,
+        data: [86,42],
+        backgroundColor: '#cee1ff',
+        borderColor: [
+            '#3c79d8',
+        ],
+        borderWidth: 1
+    },]
     },
     options: {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero:false
                 }
+            }],
+            xAxes: [{
+                display: false
             }]
         }
     }
