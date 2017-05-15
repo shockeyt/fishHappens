@@ -35,6 +35,8 @@ function WeatherController ($http) {
 
 	//WEATHER CALLS
 	function currentWeather(){
+		console.log('SPOTS.COORDINATES');
+		console.log(spots.coordinates);
        	$http
 		.get('/api/weather/current/' + fullCoordinates)
 		.then(function(response) {
@@ -85,10 +87,15 @@ function WeatherController ($http) {
         $http
         .post('/fishweek', fishSpot)
         .then(function(response){
+
             console.log(response);
             const pastWeekFlowArray = response.data.parsedArray;
             const id = vm.locasList[0].id;
             const idString = "myChart" + id;
+            let chartLabel = "Data Sourced from Station: " + response.data.stationName;
+        		if (!pastWeekFlowArray) {
+        			chartLabel = "Sorry, no data available for this location";
+        		}
 						var ctx = document.getElementById(idString);
 						let myChart = new Chart(ctx, {
 						    type: 'line',
@@ -96,11 +103,11 @@ function WeatherController ($http) {
 					        labels: pastWeekFlowArray, // this array is passed in only to provide a label for each piece of 
 					        // flow data, and then the labels are hidden. This is to comply with how chart.js sets up their charts
 					        datasets: [{
-					            label: 'Past 7 days',
+					            label: chartLabel,
 					            data: pastWeekFlowArray,
-					            backgroundColor: 'rgba(66, 134, 244, .2)',
+					            backgroundColor: '#cee1ff',
 					            borderColor: [
-					                'rgba(66, 134, 244, 1)',
+					                '#3c79d8',
 					            ],
 					            borderWidth: 1
 					        },]
@@ -165,7 +172,6 @@ function WeatherController ($http) {
     });
     markerArray.push(fishMarker);
 
-
     //**Custom info window for making new spot**
 	let newSpotForm = new google.maps.InfoWindow({
         content: "<form>" +
@@ -191,14 +197,13 @@ function WeatherController ($http) {
 
 	$('#saveSpot').click(function(e){
 		e.preventDefault();
-
 		saveLocation();
 	});
 
 	//CLICK CALLS*********   
-	   currentWeather();
+	   // currentWeather();
 	   fourDayWeather();
-	   astronomyWeather();
+	   // astronomyWeather();
 	   moonData();
 	   currentFlowCall();
 	   pastWeekFlow();
