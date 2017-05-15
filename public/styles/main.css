@@ -19,6 +19,23 @@ ul {
 	height: 800px;
 	overflow: scroll;
 }
+.navbar-default {
+  background-color: rgba(0,0,0,.5);
+  color: white;
+}
+.navbar-brand {
+  color: white;
+
+}
+
+.navbar-default .navbar-nav>li>a{
+  color: white;
+}
+
+.navbar-default .navbar-brand{
+  color: white;
+  font-size: 25px;
+}
 
 h1, h2, h3, h4, p, li {
 	color: white;
@@ -78,6 +95,7 @@ h1, h2, h3, h4, p, li {
 	padding: 12px;
 	margin-bottom: 20px;
 	border-radius: 5px;
+  border: 1px solid #e7e7e7;
 }
 
 .dataTab {
@@ -159,7 +177,7 @@ h1, h2, h3, h4, p, li {
     border-radius: 7px;
     opacity: 0.9;
     font-size: 20px;
-    padding: -30px;
+    padding: 17px;
 }
 
 
@@ -239,4 +257,10 @@ h1, h2, h3, h4, p, li {
 }
 .currentConditions {
 	font-size: 20px;
+}
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover{
+  color: #b6c1d6;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+  color: #b6c1d6;
 }

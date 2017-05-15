@@ -206,7 +206,7 @@ function WeatherController ($http) {
 
 		//CLICK CALLS*********   
 		   currentWeather();
-		   // fourDayWeather();
+		   fourDayWeather();
 		   // astronomyWeather();
 		   moonData();
 		   currentFlowCall();
