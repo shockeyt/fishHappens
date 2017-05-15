@@ -11,8 +11,6 @@ ul {
 .chart {
 	height: 300px;
 }
-
-
 .container-fluid {
 	background: url("../images/rainbowtrout.jpg")no-repeat;
 	background-size: 1200px;
@@ -56,8 +54,7 @@ h1, h2, h3, h4, p, li {
   background: tomato;
   padding: 5px;
   margin: 0 1px 0 1px;
-  width: 23%;
-  height: 300px;
+  height: 250px;
   margin-top: 5px;
   color: white;
   font-weight: bold;
@@ -65,6 +62,17 @@ h1, h2, h3, h4, p, li {
   text-align: center;
   flex-grow: 1;
   border-radius: 5px;
+}
+
+.loca-container {
+	background-color: rgba(0,0,0,.3);
+	padding: 12px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+}
+
+.dataTab {
+	background-color: rgba(255,255,255,.5);
 }
 
 /*LANDING PAGE STYLES*/
@@ -200,4 +208,3 @@ h1, h2, h3, h4, p, li {
 .centered {
     text-align: center;
 }
-

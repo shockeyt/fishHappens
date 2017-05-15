@@ -1,7 +1,6 @@
 
 angular.module('fishHappensApp')
-	.controller('WeatherController', WeatherController)
-;
+	.controller('WeatherController', WeatherController);
 
 WeatherController.$inject = ['$http'];
 function WeatherController ($http) {
@@ -9,7 +8,9 @@ function WeatherController ($http) {
 
 	let locaObject = {
 		id: 0,
-		current: {},
+		current: {
+			city_state: 'Select a location to retreive data'
+		},
 		fourDay: [],
 		astronomy: {},
 		moonData: {},
@@ -35,8 +36,6 @@ function WeatherController ($http) {
 
 	//WEATHER CALLS
 	function currentWeather(){
-		console.log('SPOTS.COORDINATES');
-		console.log(spots.coordinates);
        	$http
 		.get('/api/weather/current/' + fullCoordinates)
 		.then(function(response) {
@@ -83,55 +82,58 @@ function WeatherController ($http) {
           	console.log(response.data);
         });
 	}
-    function pastWeekFlow(){
-        $http
-        .post('/fishweek', fishSpot)
-        .then(function(response){
 
-            console.log(response);
-            const pastWeekFlowArray = response.data.parsedArray;
+	function pastWeekFlow(){
+	    $http
+	    .post('/fishweek', fishSpot)
+	    .then(function(response){
+	        console.log(response);
+	        const pastWeekFlowArray = response.data.parsedArray;
+	        let chartLabel = "Data Sourced from Station: " + response.data.stationName;
+	    		if (!pastWeekFlowArray) {
+	    			chartLabel = "Sorry, no data available for this location";
+	    		}
+					Chart.defaults.global.defaultFontColor = '#fff';
 
+					var ctx = document.getElementById("myChart");
 
-            let chartLabel = "Data Sourced from Station: " + response.data.stationName;
-        		if (!pastWeekFlowArray) {
-        			chartLabel = "Sorry, no data available for this location";
-        		}
+					let myChart = new Chart(ctx, {
+					    type: 'line',
+					    data: {
+				        labels: pastWeekFlowArray, // this array is passed in only to provide a label for each piece of 
+				        // flow data, and then the labels are hidden. This is to comply with how chart.js sets up their charts
+				        datasets: [{
+				            label: chartLabel,
+				            data: pastWeekFlowArray,
+				            backgroundColor: '#cee1ff',
+				            borderColor: [
+				                '#3c79d8',
+				            ],
+				            borderWidth: 3
+				        },]
+					    },
+					    options: {
+					        scales: {
+					            yAxes: [{
+									    	gridLines:{
+									      color:"rgb(255,255,255)",
+									      zeroLineColor:"rgb(255,255,255)"
+									    	},
+					                ticks: {
+					                    beginAtZero:false
+					                }
+					            }],
+					            xAxes: [{
+					            	display: false
+					            }]
+					        }
+					    }
+					});
 
+	    });
+	}
 
-						var ctx = document.getElementById("myChart");
-
-						let myChart = new Chart(ctx, {
-						    type: 'line',
-						    data: {
-					        labels: pastWeekFlowArray, // this array is passed in only to provide a label for each piece of 
-					        // flow data, and then the labels are hidden. This is to comply with how chart.js sets up their charts
-					        datasets: [{
-					            label: chartLabel,
-					            data: pastWeekFlowArray,
-					            backgroundColor: '#cee1ff',
-					            borderColor: [
-					                '#3c79d8',
-					            ],
-					            borderWidth: 1
-					        },]
-						    },
-						    options: {
-						        scales: {
-						            yAxes: [{
-						                ticks: {
-						                    beginAtZero:false
-						                }
-						            }],
-						            xAxes: [{
-						            	display: false
-						            }]
-						        }
-						    }
-						});
-        });
-    } 
-
-//SAVE TO DATABASE
+	//SAVE TO DATABASE
 
 	let coordObject = {};	
 	function saveLocation(){
@@ -167,55 +169,52 @@ function WeatherController ($http) {
 	          placeMarkerAndPanTo(e.latLng, map);
 	          });
 
-	// Creates a new marker and saves it to the Marker Array //
-	function placeMarkerAndPanTo(latLng, map) {
-      	let fishMarker = new google.maps.Marker({
-        	position: latLng,
-        	map: map
-    });
-    markerArray.push(fishMarker);
+		// Creates a new marker and saves it to the Marker Array //
+		function placeMarkerAndPanTo(latLng, map) {
+	      	let fishMarker = new google.maps.Marker({
+	        	position: latLng,
+	        	map: map
+	    });
+	    markerArray.push(fishMarker);
 
-    //**Custom info window for making new spot**
-	let newSpotForm = new google.maps.InfoWindow({
-        content: "<form>" +
-                  "Spot Name:" + "<br>" +
-                  "<input type='text' id='spotName' name='spotName' placeholder=''>" +
-                  "<br>" +
-                  "<button id='saveSpot'>Save Spot</button>" +
-                  "<br><br>" +
-                  "</form>"
-    });
+	    //**Custom info window for making new spot**
+		let newSpotForm = new google.maps.InfoWindow({
+	        content: "<form>" +
+	                  "Spot Name:" + "<br>" +
+	                  "<input type='text' id='spotName' name='spotName' placeholder=''>" +
+	                  "<br>" +
+	                  "<button id='saveSpot'>Save Spot</button>" +
+	                  "<br><br>" +
+	                  "</form>"
+	    });
 
-    //**Opens new-spot form so that data can be pulled from form**
-    newSpotForm.open(map, fishMarker);
+	    //**Opens new-spot form so that data can be pulled from form**
+	    newSpotForm.open(map, fishMarker);
+	 
+	    fishSpot = {
+		    lat: fishMarker.position.lat(),
+		    lng: fishMarker.position.lng()
+	    };
+	       
+		fullCoordinates = (fishSpot.lat + ',' + fishSpot.lng);
+		   console.log(fullCoordinates);
 
- 
-    fishSpot = {
-	    lat: fishMarker.position.lat(),
-	    lng: fishMarker.position.lng()
-    };
-       
-	fullCoordinates = (fishSpot.lat + ',' + fishSpot.lng);
-	   console.log(fullCoordinates);
+		$('#saveSpot').click(function(e){
+			e.preventDefault();
+			saveLocation();
+		});
 
-	$('#saveSpot').click(function(e){
-		e.preventDefault();
-		saveLocation();
-	});
+		//CLICK CALLS*********   
+		   currentWeather();
+		   // fourDayWeather();
+		   // astronomyWeather();
+		   moonData();
+		   currentFlowCall();
+		   pastWeekFlow();
 
-	//CLICK CALLS*********   
-	   // currentWeather();
-	   fourDayWeather();
-	   // astronomyWeather();
-	   moonData();
-	   currentFlowCall();
-	   pastWeekFlow();
+		//*********************
 
-	//*********************
-
-	}//close place marker
-
+		}//close place marker
 	};//close initmap
 	window.initMap();	
-
-}//close weather WeatherController
+} //close weather WeatherController

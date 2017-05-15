@@ -1,7 +1,6 @@
 angular.module('fishHappensApp')
 	.controller('SpotController', SpotController);
 
-
 SpotController.$inject = ['$http'];
 function SpotController ($http) {
 	let vm = this;
@@ -9,7 +8,6 @@ function SpotController ($http) {
 	vm.locations = {};
 	vm.saveSpots = [];
 	vm.getSpots = {};
-
 
 	vm.loca = [{
 		id: "Secret Id",
@@ -20,29 +18,6 @@ function SpotController ($http) {
 		currentFlow: {},
 		pastWeekFlow: {},
 	}];
-
-	// vm.locasList = [
-	// 	// {
-	// 	// 	name: 'Nepal',
-	// 	// 	elevation: '6,678\'',
-	// 	// 	temp: 99,
-	// 	// 	current: {
-	// 	// 		temp: 'TEST locaObject',
-	// 	// 	},
-	// 	// 	fourDay: [{
-	// 	// 		high: "67",
-	// 	// 	},
-	// 	// 	{
-	// 	// 		high: "88",
-	// 	// 	}],
-	// 	// 	moon: {
-	// 	// 		moonrise: '5:45',
-	// 	// 	}
-	// 	// },
-	// 	locaObject,
-	// ];
-
-
 
 	$http
 	.get('/api/location')
@@ -56,28 +31,36 @@ function SpotController ($http) {
 		});
 	});
 
-
 	function currentWeather(spots){
 		console.log("SPOTS.COORDINATES");
 		console.log(spots.coordinates);
-		
+		const latlong = spots.coordinates + "";
        	$http
-		.get('/api/weather/current/' + spots.coordinates)
+		.get('/api/weather/current/' + latlong)
 		.then(function(response) {
 			//console.log("am i working still?");
 			console.log("current days from db are: ", response);
-			vm.loca.current = response.data;
+			vm.loca[0].current = response.data;
 			//vm.locasList[0].current = response.data;
-
 		},console.log("ERROR"));
 	}
 
+	function fourDayWeather(spots){
+		$http
+		.get('/api/weather/fourday/' + spots.coordinates)
+		.then(function(response) {
+			console.log("am i working still?");
+			console.log("four day is: ", response);
+			vm.loca[0].fourDay = response.data;
+		});
+	}
 
 	vm.getData = getData;
 	function getData(places){
 		console.log("data button clicked");
 		console.log(places);
 		currentWeather(places);
+		fourDayWeather(places);
 	}
 
 	vm.deleteLocation = deleteLocation;
@@ -95,5 +78,5 @@ function SpotController ($http) {
 			vm.locations.splice(index, 1);
 		});
 	}
-
 }//close SpotController
+
