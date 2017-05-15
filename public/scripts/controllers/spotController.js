@@ -21,6 +21,7 @@ function SpotController ($http) {
 		pastWeekFlow: {},
 	}];
 
+	//RETURNS LOCATIONS FROM DB
 	$http
 	.get('/api/location')
 	.then(function (response) {
@@ -33,6 +34,7 @@ function SpotController ($http) {
 		});
 	});
 
+	//CALLS CURRENT WEATHER
 	function currentWeather(spots){
 		console.log("SPOTS.COORDINATES");
 		console.log(spots.coordinates);
@@ -47,6 +49,7 @@ function SpotController ($http) {
 		},console.log("ERROR"));
 	}
 
+	//CALLS FOUR DAY WEATHER
 	function fourDayWeather(spots){
 		$http
 		.get('/api/weather/fourday/' + spots.coordinates)
@@ -57,6 +60,7 @@ function SpotController ($http) {
 		});
 	}
 
+	//PULLS COORDINATES FROM DATA BUTTON
 	vm.getData = getData;
 	function getData(places){
 		console.log("data button clicked");
@@ -65,6 +69,7 @@ function SpotController ($http) {
 		fourDayWeather(places);
 	}
 
+	//DELETES A SPOT
 	vm.deleteLocation = deleteLocation;
 	function deleteLocation(places){
 		console.log("deletebutton clicked");

@@ -1,23 +1,11 @@
-#map {
-
-	width: 80%;
-	height: 400px;
-	background-color: grey;
-	margin: 0 auto;
-}
-ul {
-	list-style: none;
-}
-.chart {
-	height: 300px;
-}
+/*GLOBAL STYLES*/
 .container-fluid {
-	background: url("../images/rainbowtrout.jpg")no-repeat;
-	background-size: 1200px;
-	background-position: center;
-	display: block;
-	height: 800px;
-	overflow: scroll;
+  background: url("../images/rainbowtrout.jpg")no-repeat;
+  background-size: 1200px;
+  background-position: center;
+  display: block;
+  height: 800px;
+  overflow: scroll;
 }
 .navbar-default {
   background-color: rgba(0,0,0,.5);
@@ -38,19 +26,21 @@ ul {
 }
 
 h1, h2, h3, h4, p, li {
-	color: white;
+  color: white;
 }
 
-.spots {
-	font-size: 20px;
+ul {
+  list-style: none;
 }
+
+/*TEMPLATES****************************************/
 
 .hatches {
-	background: url("../images/hatch_chart.jpg")no-repeat;
-	background-size: 605px;
-	background-position: center;
-	display: block;
-	height: 800px;
+  background: url("../images/hatch_chart.jpg")no-repeat;
+  background-size: 605px;
+  background-position: center;
+  display: block;
+  height: 800px;
 }
 
 .patterns {
@@ -60,6 +50,178 @@ h1, h2, h3, h4, p, li {
   display: block;
   height: 600px;
 }
+
+.homeTitle {
+  text-align: center;
+}
+.savedTitle, .coordTitle {
+  text-align: center;
+}
+
+.spotList {
+  text-align: center;
+}
+.coordList {
+  padding: 5px;
+}
+
+/*LANDING PAGE STYLES*/
+    .frontlanding {
+      position: absolute;
+      z-index: 100;
+    }
+
+    .fullscreen-bg {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: 0;
+    }
+
+    .fullscreen-bg__video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (min-aspect-ratio: 16/9) {
+      .fullscreen-bg__video {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    @media (max-aspect-ratio: 16/9) {
+      .fullscreen-bg__video {
+        width: auto;
+        height: 100%;
+      }
+    }
+    .text {
+        font-family: 'calibri';
+        font-size: 25px;
+        font-weight: bold;
+        margin: 0 auto;
+        width: 60%;
+        text-align: center;  
+        color: white;
+        background-color: rgba(100,100,100,.6);
+        border-radius: 10px; 
+        line-height: 40px;
+        padding: 15px;
+    }
+
+    #title {
+        margin-bottom: 0px;
+        text-align: center;
+        font-size: 100px;
+        opacity: 0.9;
+        color: white;
+        text-shadow:
+        -1px -1px 0 rgba(0,,0,1),
+        1px -1px 0 rgba(0,0,0,1),
+        -1px 1px 0 rgba(0,0,0,1),
+        1px 1px 0 rgba(0,0,0,1);
+    }
+
+    .homebutton {
+        background-color: #FFFFFF;
+        display:block;
+        margin: 0 auto;
+      /*  position: relative;*/
+        bottom: 3em;
+        width: 20%;
+        height: 3em;
+        border-radius: 4px;
+        opacity: 0.7;
+        font-size: 20px;
+        padding: -30px;
+    }
+
+
+    #friend{
+        color: lightgreen;
+    }
+
+    #under {
+        font-size:105%;
+        text-decoration: underline;
+        text-decoration-color: black;
+    }
+    #how {
+        text-decoration-style: wavy;
+    }
+
+    #about {
+        background-color: rgba(300,200,100,0.3);
+        font-size: 15px;
+        width: 7%;
+        height: 5%;
+        position: absolute;
+        top: 2%;
+        right: 2%;
+    }
+
+    /*ABOUT US STYLES*/
+
+    .chart {
+        height: 300px;
+    }
+    .profile {
+        width: 190px;
+        
+    }
+    .theH1{
+        text-align: center;
+    }
+    .theH3 {
+        display: inline;
+    }
+    .theLi{
+        display: inline;    
+    }
+    .col-sm-4{
+        text-align: center;
+    }
+    .theUl{
+        margin-left: 10px;
+        padding:0;
+    }
+    .holder{
+        text-align: center;
+    }
+    .centered {
+        text-align: center;
+    }
+
+/***************************************************/
+
+/*MAP STYLES*/
+#map {
+
+	width: 80%;
+	height: 400px;
+	background-color: grey;
+	margin: 0 auto;
+}
+
+
+/*CHART STYLES*/
+.chart {
+	height: 300px;
+}
+
+
+/*WEATHER PANELS*/
+.spots {
+	font-size: 20px;
+}
+
 
 .flex-container {
   padding: 0;
@@ -101,6 +263,7 @@ h1, h2, h3, h4, p, li {
 .dataTab {
 	background-color: rgba(255,255,255,.5);
 }
+
 
 /*LANDING PAGE STYLES*/
 .frontlanding {
@@ -264,3 +427,4 @@ h1, h2, h3, h4, p, li {
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
   color: #b6c1d6;
 }
+

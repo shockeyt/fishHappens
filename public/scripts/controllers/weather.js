@@ -146,7 +146,7 @@ function WeatherController ($http) {
 			console.log("saved: ", response);
 		});
 	}
-
+//************** MAPS ************************************
 	window.initMap = function(){
 	    // used to hold all of the markers
 	    let markerArray = [];

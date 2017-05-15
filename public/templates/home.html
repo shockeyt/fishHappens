@@ -1,5 +1,7 @@
 
-<h1>Search for Spots</h1>
+<h1 class="homeTitle">Search for Spots</h1>
+
+
 <!-- <hr>
 <p ng-if="home.posts.length === 0">No posts yet.</p>
 
@@ -8,12 +10,13 @@
 		<p><strong>{{post.title}}</strong> - {{post.content}}</p><br>
 	</div>
 </div> -->
-
+<!-- SHOWS A SIGNUP PROMPT IF NOT LOGGED IN -->
 <div ng-show="!main.currentUser()">
 	<h3>Sign up / Log in to save a location</h3>
 	<br>
 </div>
 <section ng-controller="WeatherController as weatherController">
+<!-- CREATES MAP -->
 	<div id='map'></div>
 
 	<div ng-repeat="location in weatherController.locasList">

@@ -42,6 +42,7 @@
   <!-- custom script (angular app) -->
 
   <script type="text/javascript" src="scripts/app.js"></script>
+  <!-- CONTROLLERS -->
   <script type="text/javascript" src="scripts/controllers/userFront.js"></script>
 
   <script type="text/javascript" src="scripts/controllers/locasController.js"></script>
@@ -51,10 +52,11 @@
 
   <script type="text/javascript" src="scripts/controllers/spotController.js"></script>
 
-  <title>FlyLab</title>
+  <title>FishHappens</title>
 </head>
 <body>
   <div class="container-fluid">
+  <!-- MAIN CONTROLLER for USERS -->
   <section ng-controller="MainController as main">
     <nav class="navbar navbar-default navigation">
       <div class="container">
@@ -65,9 +67,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+          <!-- CORNER TITLE -->
           <a class="navbar-brand" href="/">Fish Happens</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <!-- NAV-BAR LINKS -->
           <ul class="nav navbar-nav">
             <li><a href="/home">Search</a></li>
             <li><a href="/hatches">Hatches</a></li>
@@ -90,25 +94,26 @@
       </div>
     </div>
   </section>
-
+  <!-- WEATHER CONTROLLER -->
   <section ng-controller="WeatherController as weather"> 
 
   </section>
 
-  <!-- <div id='map'></div>
-  <section ng-controller='FlowController as flow'></section>
+    <!-- <div id='map'></div>
+    <section ng-controller='FlowController as flow'></section>
      <br><br><br>
-  <div id='dropDataHere'></div>
-  <br><br> -->
-
- <script async defer
+    <div id='dropDataHere'></div>
+    <br><br> -->
+  
+  <!-- GOOGLE MAP SCRIPT -->
+    <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwzjycwkTpTqZb9H--_zIMfbiB2KOKwA8&callback=initMap">
     </script>    
 
-<!--   <canvas id="myChart" width="200" height="200"></canvas> -->
-  </div> <!-- fluid container -->
+    <!--   <canvas id="myChart" width="200" height="200"></canvas> -->
+    </div> <!-- fluid container -->
 
 
-</body>
+  </body>
     <!-- <script type="text/javascript" src="scripts/chartin.js"></script> -->
 </html>
