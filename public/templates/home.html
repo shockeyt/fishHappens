@@ -1,12 +1,12 @@
-<h1>HOME Page</h1>
+<h1>Search for a Spot</h1>
 <hr>
-<p ng-if="home.posts.length === 0">No posts yet.</p>
+<!-- <p ng-if="home.posts.length === 0">No posts yet.</p>
 
 <div ng-if="home.posts.length > 0">
 	<div ng-repeat="post in home.posts">
 		<p><strong>{{post.title}}</strong> - {{post.content}}</p><br>
 	</div>
-</div>
+</div> -->
 
 <div ng-show="main.currentUser()">
 	<h3>Current User is:</h3>
@@ -15,6 +15,7 @@
 </div>
 
 <section ng-controller="WeatherController as weatherController">
+ <div id='map'></div>
 	<div ng-repeat="location in weatherController.locasList">
 	  <loca
 			location="location"

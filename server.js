@@ -21,7 +21,7 @@ var routes = require('./config/routes');
 app.use(routes);
 
 // Catch ALL Route
-app.get(['/', '/signup', '/login', '/profile'], function (req, res) {
+app.get(['/', '/home', '/signup', '/login', '/profile', '/landing', '/hatches'], function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
@@ -103,6 +103,6 @@ app.get(['/', '/signup', '/login', '/profile'], function (req, res) {
 // });
 
 //localhost 9000 
-app.listen(9000, function() {
+app.listen(process.env.PORT || 9000, function() {
 	console.log('server started');
 });

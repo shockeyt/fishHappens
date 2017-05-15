@@ -1,8 +1,10 @@
 <section>
 	<div class="card">
 	<div class="card-header row" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapseExample">
+
 	<h4 class="">Click{{location.current.city_state}} {{location.current.elevation}} <span class="pull-right">{{location.current.temp}}</span><img class="pull-right" src="{{location.current.icon}}"></h4>
 	</div>
+
 		<div class="collapse" id="collapse">
 
 <ul class="nav nav-tabs">
@@ -67,8 +69,13 @@
 <!-- <canvas id="myChart" width="200" height="200"></canvas> -->
 
 		</div>
+
+
+		<canvas id="myChart" class="chart"></canvas>
+
 		<p>Past 7 Days of Water Flow (cfpm)</p>
 		<canvas id="myChart" class="chart"></canvas>
+
 
 	</div>
 

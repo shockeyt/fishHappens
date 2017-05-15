@@ -2,7 +2,7 @@
 
 	width: 80%;
 	height: 400px;
-	background-color: yellow;
+	background-color: grey;
 	margin: 0 auto;
 }
 ul {
@@ -11,6 +11,32 @@ ul {
 .chart {
 	height: 300px;
 }
+
+
+.container-fluid {
+	background: url("../images/rainbowtrout.jpg")no-repeat;
+	background-size: 1200px;
+	background-position: center;
+	display: block;
+	height: 800px;
+	overflow: scroll;
+}
+
+h1, h2, h3, h4, p, li {
+	color: white;
+}
+
+.spots {
+	font-size: 20px;
+}
+
+.hatches {
+	background: url("../images/hatch_chart.jpg")no-repeat;
+	background-size: 605px;
+	background-position: center;
+	display: block;
+	height: 800px;
+
 .flex-container {
   padding: 0;
   margin: 0;

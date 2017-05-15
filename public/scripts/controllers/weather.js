@@ -90,11 +90,16 @@ function WeatherController ($http) {
 
             console.log(response);
             const pastWeekFlowArray = response.data.parsedArray;
+
+
             let chartLabel = "Data Sourced from Station: " + response.data.stationName;
         		if (!pastWeekFlowArray) {
         			chartLabel = "Sorry, no data available for this location";
         		}
+
+
 						var ctx = document.getElementById("myChart");
+
 						let myChart = new Chart(ctx, {
 						    type: 'line',
 						    data: {
