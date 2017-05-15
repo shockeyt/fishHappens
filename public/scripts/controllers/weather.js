@@ -133,19 +133,27 @@ function WeatherController ($http) {
 	    });
 	}
 
+	//variable that triggers window closing:
+	let didSaveHappen = false;
 	//SAVE TO DATABASE
 
 	let coordObject = {};	
 	function saveLocation(){
+
 		//console.log(typeof fullCoordinates);
+		didSaveHappen = true;
 		coordObject.coordinates = fullCoordinates;
 		console.log(coordObject);	
 		$http
 		.post('/api/location/', coordObject)
 		.then(function(response){
 			console.log("saved: ", response);
+			
 		});
 	}
+
+// ****Initiates Map on Page ******//
+// ********************************//
 
 	window.initMap = function(){
 	    // used to hold all of the markers
@@ -154,15 +162,31 @@ function WeatherController ($http) {
 	    //**preloaded spots when the page loads**
 	    let denver = {lat: 39.7392, lng: -104.9903};
 	   
+	    let instructions = new google.maps.InfoWindow({
+	    	content: '<strong>Welcome to Fish Happens. Take a second to familiarize ' +
+	    	'yourself with the app.</strong> <br><br>Use the map here to place a marker on a spot ' +
+	    	'that you would like to see data for. Once a marker has been placed ' +
+	    	'data will be provided below the map in an expandable window. Click the' +
+	    	' expandable window to see weather, streamflow, and forecase information.'
+	    });
+	   
 	   // This is the actual map we are working off of //
 	    let map = new google.maps.Map(document.getElementById('map'), {
 	      zoom: 10,
 	      center: denver
 	    });
 
+	     let instructionsMarker = new google.maps.Marker({
+	    	position: denver,
+	    	map: map
+	    });
+
+	    instructions.open(map, instructionsMarker);
+
 	    let thisWindow = new google.maps.InfoWindow({
       		content: 'Fishing Spot'
      	});
+
 
 	    // Event listener for map, makes a new spot on click
 	    map.addListener('click', function(e) {
@@ -202,6 +226,11 @@ function WeatherController ($http) {
 		$('#saveSpot').click(function(e){
 			e.preventDefault();
 			saveLocation();
+			if(didSaveHappen===true){
+				newSpotForm.close();
+				didSaveHappen = false;
+				console.log(didSaveHappen);
+			}
 		});
 
 		//CLICK CALLS*********   
@@ -216,5 +245,10 @@ function WeatherController ($http) {
 
 		}//close place marker
 	};//close initmap
+
+// ******************* //
+// **End of Map Init** //
+
+
 	window.initMap();	
 } //close weather WeatherController
